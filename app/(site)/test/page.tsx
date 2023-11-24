@@ -10,7 +10,6 @@ export default async function Page() {
     <>
       <h1 className='text-4xl font-bold'>{test[0].id}</h1>
       <h1>{test[0].name}</h1>
-      <h3>{test[0].name}</h3>
     </>
   );
 }
