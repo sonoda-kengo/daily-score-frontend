@@ -7,7 +7,6 @@ import { SigninButton, SignoutButton } from '@/components/button';
 
 const Login: NextPage = () => {
   const { data: session } = useSession();
-  console.log('session', session);
 
   return (
     <>

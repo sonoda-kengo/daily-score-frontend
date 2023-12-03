@@ -33,7 +33,6 @@ async function getData() {
 export default async function Page() {
   const test = await getData();
   const categories = await getCategory();
-  console.log(categories);
   return (
     <>
       <h1 className='text-4xl font-bold'>{test.name}</h1>
