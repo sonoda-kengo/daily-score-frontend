@@ -1,11 +1,22 @@
-import Image from 'next/image';
+'use client';
+import { useSession } from 'next-auth/react';
 
-export default function Home() {
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+
+export default async function Home() {
+  // const { data: session, status } = useSession();
+  const session = await getServerSession(authOptions);
+  console.log('session', session);
+
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <div>
-        <p>Hello Next.js 13</p>
-      </div>
-    </main>
+    <>
+      {session && (
+        <div>
+          <p>{session.access}</p>
+        </div>
+      )}
+      <div>Client Page</div>
+    </>
   );
 }
