@@ -33,10 +33,18 @@ async function getData() {
 export default async function Page() {
   const test = await getData();
   const categories = await getCategory();
+  console.log(categories);
   return (
     <>
-      <h1 className='text-4xl font-bold'>{test.name}</h1>
-      <p className='font-bold'>{categories[0].name}</p>
+      <p className='font-bold'>{test.name}</p>
+      {categories[0] && (
+        <div>
+          <div>
+            <h1 className='text-4xl font-bold'>categories</h1>
+          </div>
+          <p>{categories[0].name}</p>
+        </div>
+      )}
     </>
   );
 }
