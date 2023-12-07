@@ -1,13 +1,22 @@
-import NextAuth, { Session, User } from 'next-auth';
+import NextAuth from 'next-auth';
 import { NextAuthOptions } from 'next-auth/index';
 import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import axios from 'axios';
 
-interface fetchData {
+interface IFetchData {
   refresh?: string;
   access?: string;
-  user?: User;
+  user?: IUserData;
+}
+
+interface IUserData {
+  pk: string;
+  username: string;
+  email?: string;
+  first_name?: string;
+  last_name?: string;
 }
 
 export const authOptions: NextAuthOptions = {
@@ -39,10 +48,11 @@ export const authOptions: NextAuthOptions = {
             const error = await res.json();
             throw new Error(error.message);
           }
-          const fetchData: fetchData = await res.json();
+          const fetchData: IFetchData = await res.json();
           if (fetchData.user) {
             return {
-              ...fetchData.user,
+              id: fetchData.user.pk,
+              name: fetchData.user.username,
               access: fetchData.access,
             };
           } else {
@@ -57,6 +67,29 @@ export const authOptions: NextAuthOptions = {
   ],
   secret: process.env.NEXTAUTH_SECRET as string,
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider == 'google') {
+        // fetch token from be, and set data
+        try {
+          const response = await axios({
+            method: 'post',
+            url: process.env.NEXT_PUBLIC_RESTAPI_URL + '/apiv1/google/',
+            data: {
+              access_token: account['access_token'],
+              id_token: account['id_token'],
+            },
+          });
+          account.access_token = response.data.access;
+          user = response.data.user;
+          return true;
+        } catch (error) {
+          console.error((error as Error).message);
+          return false;
+        }
+      } else {
+        return true;
+      }
+    },
     async jwt({ token, user, account }) {
       if (account?.provider == 'credentials') {
         account.access_token = user.access;
