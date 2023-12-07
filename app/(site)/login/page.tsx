@@ -1,5 +1,5 @@
 'use client';
-// export default LoginPage;
+
 import React from 'react';
 import { useSession } from 'next-auth/react';
 import { NextPage } from 'next';
@@ -21,9 +21,6 @@ const Login: NextPage = () => {
           <p>not signed in yet</p>
           <div>
             <SigninButton />
-          </div>
-          <div>
-            <SignoutButton />
           </div>
         </div>
       )}

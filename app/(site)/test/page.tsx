@@ -1,9 +1,7 @@
-import { useSession } from 'next-auth/react';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 const getCategory = async () => {
-  // const { data: session, status } = useSession({ required: true });
   const session = await getServerSession(authOptions);
 
   try {
@@ -15,8 +13,8 @@ const getCategory = async () => {
     });
     const data = await res.json();
     return data;
-  } catch (error: any) {
-    console.error('Error fetching data:', error.message);
+  } catch (error) {
+    console.error('Error fetching data:', (error as Error).message);
     throw error;
   }
 };
