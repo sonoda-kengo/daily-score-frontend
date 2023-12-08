@@ -1,14 +1,15 @@
 import Link from 'next/link';
+import { Grid, Typography } from '@mui/material';
 
 export default function Header() {
   return (
-    <>
-      <div>
+    <Grid>
+      <Grid>
         <Link href='/test'>Test</Link>
-      </div>
-      <div>
+      </Grid>
+      <Grid>
         <Link href='/login'>SignIn</Link>
-      </div>
-    </>
+      </Grid>
+    </Grid>
   );
 }

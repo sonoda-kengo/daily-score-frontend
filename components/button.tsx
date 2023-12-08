@@ -1,19 +1,12 @@
 'use client';
 
 import { signIn, signOut } from 'next-auth/react';
+import { Button } from '@mui/material';
 
 export const SigninButton = () => {
-  return (
-    <button style={{ marginRight: 10 }} onClick={() => signIn()}>
-      Sign in
-    </button>
-  );
+  return <Button onClick={() => signIn()}>Sign in</Button>;
 };
 
 export const SignoutButton = () => {
-  return (
-    <button style={{ marginRight: 10 }} onClick={() => signOut()}>
-      Sign Out
-    </button>
-  );
+  return <Button onClick={() => signOut()}>Sign Out</Button>;
 };
