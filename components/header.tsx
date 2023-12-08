@@ -1,15 +1,16 @@
 import Link from 'next/link';
-import { Grid, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import { SigninButton } from './button';
 
 export default function Header() {
   return (
-    <Grid>
-      <Grid>
-        <Link href='/test'>Test</Link>
-      </Grid>
-      <Grid>
-        <Link href='/login'>SignIn</Link>
-      </Grid>
-    </Grid>
+    <AppBar position='static'>
+      <Toolbar>
+        <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
+          Dairy-Score-App
+        </Typography>
+        <SigninButton />
+      </Toolbar>
+    </AppBar>
   );
 }
