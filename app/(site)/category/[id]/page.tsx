@@ -1,8 +1,9 @@
+import { TodoLine } from '@/components/todo-line';
+
 export default async function CategoryIdPage() {
   return (
     <>
-      <p>category/id page</p>
-      <p>card component</p>
+      <TodoLine />
     </>
   );
 }
