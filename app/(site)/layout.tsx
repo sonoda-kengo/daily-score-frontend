@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import DrawerLeft from '@/components/drawer';
 import { Providers } from './provider';
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <DrawerLeft />
           </Grid>
           <Grid item xs={9}>
-            <Providers>{children}</Providers>
+            <Providers>
+              <Box margin={2}>{children}</Box>
+            </Providers>
           </Grid>
         </Grid>
       </body>
