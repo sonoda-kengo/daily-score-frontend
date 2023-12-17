@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google';
 import Header from '@/components/header';
+import DrawerLeft from '@/components/drawer';
 import { Providers } from './provider';
+import { Grid } from '@mui/material';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,8 +15,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Header />
-        <Providers>{children}</Providers>
+        <Grid container>
+          <DrawerLeft />
+          <Providers>{children}</Providers>
+        </Grid>
       </body>
     </html>
   );
