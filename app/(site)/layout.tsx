@@ -13,12 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <head />
+      <body className={inter.className} style={{ margin: 0 }}>
         <Grid container>
-          <Grid item>
+          <Grid item xs={3}>
             <DrawerLeft />
           </Grid>
-          <Grid item>
+          <Grid item xs={9}>
             <Providers>{children}</Providers>
           </Grid>
         </Grid>
