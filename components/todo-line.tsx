@@ -13,7 +13,7 @@ export const TodoLine = ({ todo }: { todo: ITodo }) => {
           }}
         />
       </Grid>
-      <Grid container xs={11} borderBottom={1} alignItems='center'>
+      <Grid item xs={11} container borderBottom={1} alignItems='center'>
         <Grid item xs={6}>
           <Typography ml={1}>{todo.title}</Typography>
         </Grid>
