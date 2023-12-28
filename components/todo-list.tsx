@@ -1,6 +1,6 @@
-import { ITodo } from '@/app/types/todo';
 import { Box, Typography } from '@mui/material';
 import { TodoLine } from './todo-line';
+import { ITodo } from '@/app/types/todo';
 
 export const TodoList = ({ todoList }: { todoList: ITodo[] }) => {
   return (

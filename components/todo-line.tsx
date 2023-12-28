@@ -1,7 +1,7 @@
 'use client';
 
-import { ITodo } from '@/app/types/todo';
 import { Checkbox, Grid, Typography } from '@mui/material';
+import { ITodo } from '@/app/types/todo';
 
 export const TodoLine = ({ todo }: { todo: ITodo }) => {
   return (

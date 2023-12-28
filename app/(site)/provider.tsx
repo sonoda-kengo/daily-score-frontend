@@ -1,7 +1,7 @@
 'use client';
-import { SessionProvider } from 'next-auth/react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blue } from '@mui/material/colors';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SessionProvider } from 'next-auth/react';
 
 const theme = createTheme({
   palette: {

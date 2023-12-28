@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { AppBar, Toolbar, Typography } from '@mui/material';
+import Link from 'next/link';
 import { SigninButton } from './button';
 
 export default function Header() {

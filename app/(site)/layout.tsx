@@ -1,7 +1,7 @@
-import { Inter } from 'next/font/google';
-import DrawerLeft from '@/components/drawer';
-import { Providers } from './provider';
 import { Box, Grid } from '@mui/material';
+import { Inter } from 'next/font/google';
+import { Providers } from './provider';
+import DrawerLeft from '@/components/drawer';
 
 const inter = Inter({ subsets: ['latin'] });
 
